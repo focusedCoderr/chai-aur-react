@@ -8,12 +8,20 @@ function App() {
 
 	function increaseCounter() {
 		if (counter <= 19) {
-			setCounter(counter + 1);
+			setCounter((prevCounter) => {
+				return prevCounter + 1;
+			});
+			setCounter((prevCounter) => prevCounter + 1);
+			setCounter((prevCounter) => prevCounter + 1);
+			setCounter((prevCounter) => prevCounter + 1);
 		}
 	}
 
 	function decreaseCounter() {
 		if (counter > 0) {
+			setCounter(counter - 1);
+			setCounter(counter - 1);
+			setCounter(counter - 1);
 			setCounter(counter - 1);
 		}
 	}
