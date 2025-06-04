@@ -6,7 +6,7 @@ function App() {
   const BackgroundImage =
     "https://images.pexels.com/photos/394619/pexels-photo-394619.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
 
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState();
   const [from, setFrom] = useState("usd");
   const [to, setTo] = useState("inr");
   const [convertedAmount, setConvertedAmount] = useState(0);
