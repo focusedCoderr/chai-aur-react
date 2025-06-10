@@ -1,19 +1,19 @@
 import { useState } from "react";
 import "./App.css";
-import { TodoProvider } from "./contexts/ToDoContexts";
+import { TodoProvider } from "./contexts";
 
 function App() {
-  const [todos, setTodos] = useState([]);
-  const addTodo = (todoMessage) => {
-    todos.push();
-  };
-  return (
-    <TodoProvider
-      value={{ todos, addTodo, deleteTodo, updateTodo, toggleComplete }}
-    >
-      <h1 class="text-3xl font-bold underline">Hello world!</h1>
-    </TodoProvider>
-  );
+	const [todos, setTodos] = useState([]);
+	const addTodo = (todoMessage) => {
+		setTodos([{ id: Date.now(), todoMessage, completed: false }]);
+	};
+	return (
+		<TodoProvider
+			value={{ todos, addTodo, deleteTodo, updateTodo, toggleComplete }}
+		>
+			<h1 class="text-3xl font-bold underline">Hello world!</h1>
+		</TodoProvider>
+	);
 }
 
 export default App;
