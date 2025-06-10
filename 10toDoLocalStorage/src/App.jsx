@@ -4,9 +4,25 @@ import { TodoProvider } from "./contexts";
 
 function App() {
 	const [todos, setTodos] = useState([]);
+
 	const addTodo = (todoMessage) => {
-		setTodos([{ id: Date.now(), todoMessage, completed: false }]);
+		setTodos((prevTodos) => [
+			...prevTodos,
+			{ id: Date.now(), todoMessage: todoMessage, completed: false },
+		]);
 	};
+
+	// const deleteTodo = (id) =>
+	// 	setTodos(
+	// 		todos.filter((eachTodo) => {
+	// 			eachTodo.id !== id;
+	// 		})
+	// 	);
+
+	const deleteTodo = (id) => {
+		setTodos((prevTodos) => prevTodos.filter((eachTodo) => eachTodo.id !== id));
+	};
+
 	return (
 		<TodoProvider
 			value={{ todos, addTodo, deleteTodo, updateTodo, toggleComplete }}
