@@ -23,6 +23,12 @@ function App() {
 		setTodos((prevTodos) => prevTodos.filter((eachTodo) => eachTodo.id !== id));
 	};
 
+	const updateTodo = (id, todoMessage)=>{
+		setTodos((prevTodos)=> prevTodos.map((eachTodo)=>{
+			eachTodo.id === id ? eachTodo
+		}))
+	}
+
 	return (
 		<TodoProvider
 			value={{ todos, addTodo, deleteTodo, updateTodo, toggleComplete }}
